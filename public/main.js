@@ -1,5 +1,5 @@
 const sentence = document.querySelector("#sentence");
-const url = "http://18.130.69.19";
+const url = "https://35.177.128.2";
 
 const getDescription = async () => {
   try {
