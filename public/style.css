@@ -1,12 +1,13 @@
 body {
   text-align: center;
+  background-size: cover;
 }
 
 .card {
-  background-color: #000;
+  background-color: #000000d0;
   color: #fff;
   padding: 2em;
-  margin: 25vh 5em 0;
+  margin: 30vh 20em 0;
   border-radius: 30px;
 }
 
