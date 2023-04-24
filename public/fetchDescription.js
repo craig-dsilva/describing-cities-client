@@ -1,6 +1,6 @@
-const fetchDescription = async () => {
+const fetchDescription = async (url) => {
   try {
-    const res = await fetch("https://backend.cloudproject.craigdsilva.com");
+    const res = await fetch(url);
     const data = await res.json();
     return data;
   } catch (err) {
@@ -8,4 +8,4 @@ const fetchDescription = async () => {
   }
 };
 
-export default fetchDescription;
+module.exports = fetchDescription;
