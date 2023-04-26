@@ -2,10 +2,10 @@ name: Describing Cities Client
 
 on:
   push:
-    branches: [ testing ]
+    branches: [main]
 
 jobs:
-  test_api:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -14,3 +14,15 @@ jobs:
           node-version: 16
       - run: npm ci
       - run: npm test
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          REMOTE_HOST: ${{ secrets.HOST_IP }}
+          REMOTE_USER: ${{ secrets.USERNAME }}
+          TARGET: ${{ secrets.DIR }}
+          script: sh deploy.sh
