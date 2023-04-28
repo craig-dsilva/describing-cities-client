@@ -8,4 +8,4 @@ const fetchDescription = async (url) => {
   }
 };
 
-module.exports = fetchDescription;
+export default fetchDescription;
