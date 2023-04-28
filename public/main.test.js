@@ -1,4 +1,5 @@
-const fetchDescription = require("./fetchDescription");
+import { jest } from "@jest/globals";
+import fetchDescription from "./fetchDescription";
 
 const cityName = "London";
 const adjective = "well";
