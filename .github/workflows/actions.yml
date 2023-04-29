@@ -21,7 +21,7 @@ jobs:
       - uses: actions/checkout@v3
       - id: ip
         uses: haythem/public-ip@v1.3
-      - run: aws ec2 authorize-security-group-ingress --group-name ${{ env.SG_NAME }} --protocol tcp --port 22 --cidr ${{ steps.ip.outputs.ipv4 }}/32
+      - run: aws ec2 authorize-security-group-ingress --group-name ${{ secrets.SG_NAME }} --protocol tcp --port 22 --cidr ${{ steps.ip.outputs.ipv4 }}/32
       - uses: easingthemes/ssh-deploy@main
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
@@ -29,4 +29,4 @@ jobs:
           REMOTE_USER: ${{ secrets.USERNAME }}
           TARGET: ${{ secrets.DIR }}
           SCRIPT_AFTER: sh describing-cities/describing-cities-client/deploy.sh
-      - run: aws ec2 revoke-security-group-ingress --group-name ${{ env.SG_NAME }} --protocol tcp --port 22 --cidr ${{ steps.ip.outputs.ipv4 }}/32
+      - run: aws ec2 revoke-security-group-ingress --group-name ${{ secrets.SG_NAME }} --protocol tcp --port 22 --cidr ${{ steps.ip.outputs.ipv4 }}/32
