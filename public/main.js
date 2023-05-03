@@ -4,7 +4,7 @@ const sentenceEl = document.querySelector("#sentence");
 const bodyEl = document.querySelector("body");
 
 const sentence = await fetchDescription(
-  "https://backend.cloudproject.craigdsilva.com"
+  "https://describingcitiesbackend.craigdsilva.com"
 );
 
 sentenceEl.innerText = sentence;
